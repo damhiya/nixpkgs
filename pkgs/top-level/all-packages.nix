@@ -6688,7 +6688,12 @@ with pkgs;
 
   gebaar-libinput = callPackage ../tools/inputmethods/gebaar-libinput { };
 
-  kime = callPackage ../tools/inputmethods/kime { };
+  kime = callPackage ../tools/inputmethods/kime {
+    rustPlatform = makeRustPlatform {
+      callPackages = lib.callPackagesWith (pkgs // { clang = clang_17; });
+      inherit rustc cargo;
+    };
+  };
 
   libpinyin = callPackage ../development/libraries/libpinyin { };
 
