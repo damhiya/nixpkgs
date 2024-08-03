@@ -4,6 +4,8 @@
 , cargo
 , cargo-auditable ? prev.cargo-auditable
 , stdenv ? prev.stdenv
+, callPackage ? prev.callPackage
+, callPackages ? prev.callPackages
 , ...
 }:
 
